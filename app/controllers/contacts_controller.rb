@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
 
 	def index
 		@client = Client.find params[:client_id]
-		@contact = Contact.all
+		@contact = @client.contacts.all
 	end
 
 	def new

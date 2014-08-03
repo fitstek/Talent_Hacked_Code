@@ -1,15 +1,16 @@
 <div class="home-container" alt="mindmap">
   <%= image_tag("mind_map.jpg", alt: "Talent Hacked") %>
   <section>
+    <% user = current_developer || current_client %>
   <% if developer_signed_in? %>
-    <h1 align="center"><%= "Welcome #{current_developer.email}" %></h1>
+    <h1 align="center"><%= "Welcome #{user.name}" %></h1>
   <% elsif client_signed_in? %>
-    <h1 align="center"><%= "Welcome #{current_client.email}" %></h1>
+    <h1 align="center"><%= "Welcome #{user.name}" %></h1>
   <% else %>
     <h1 align="center"><%= "Welcome to Talent Hacked" %></h1>
   <% end %>
 
-  <% if !(current_developer || current_client) %>
+  <% if !(user) %>
 
     <p align="center">
     <a data-toggle="modal" data-remote="<%=new_client_registration_path%>#modal-edit-fields" data-target="#clientRegisterModal" class="btn btn-primary btn-lg" href='/clients/sign_up'>Clients</a>
