@@ -15,6 +15,13 @@ class ApplicationController < ActionController::Base
     def user_for_paper_trail
       admin_user_signed_in? ? current_admin_user : 'User'
     end
+    def after_sign_in_path_for(resource)
+      dashboard_path(resource)
+    end
+
+    def after_sign_up_path_for(resource)
+      dashboard_path(resource)
+    end
 
   	def configure_permitted_parameters
     	devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password, :remember_me) }
