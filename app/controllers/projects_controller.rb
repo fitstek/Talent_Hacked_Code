@@ -110,6 +110,12 @@ class ProjectsController < ApplicationController
 
 			(@project.languages << added_languages).uniq
 			(@project.skills << added_skills).uniq
+
+			dev_array = @project.viable_developers
+			dev_array.each do |developer|
+				@project.developers << developer
+			end
+		
 	   		redirect_to client_project_path(@client, @project)
 		end
 	end
