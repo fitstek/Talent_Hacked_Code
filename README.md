@@ -37,13 +37,10 @@ Capybara
 Rspec
 Devise
 Paperclip
-Stripe payment system
 Poltergeist
 Amazon Web Services S3
 Bootstrap
-Google Maps API
 Heroku
-Websockets
 Javascript
 
 Gems used:
